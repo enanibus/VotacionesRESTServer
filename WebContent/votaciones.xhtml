@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:u="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>#{msgs.key3}</title>
+</h:head>
+<h:body>
+	<f:view locale="#{i18n.locale}"></f:view>
+	<h1>#{msgs.key2}</h1>
+	<h2>#{msgs.key3}</h2>
+	<p:dataTable border="1" var="voto" value="#{votacionesBeanJSF.votaciones}" paginator="true" rows="5"  
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                 rowsPerPageTemplate="5,10,15">  
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="#{msgs.key7}"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{voto.id}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="#{msgs.key8}"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{voto.ipCliente}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="#{msgs.key9}"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{voto.respVoto}" />
+		</p:column>
+	</p:dataTable>
+	<p>
+		<a href="./home.jsf">#{msgs.key10}</a>
+	</p>
+		<br></br><br></br>
+	<h:form>
+		<h:commandLink action="#{i18n.change('es')}" immediate="true" value="Español" />
+		|
+		<h:commandLink action="#{i18n.change('en')}" immediate="true" value="English" />
+	</h:form>
+</h:body>
+</html>
